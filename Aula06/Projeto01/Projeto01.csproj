@@ -43,6 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\LivroControle.cs" />
+    <Compile Include="Entities\Autor.cs" />
+    <Compile Include="Entities\Livro.cs" />
+    <Compile Include="Interfaces\ILivroControle.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
