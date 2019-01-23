@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Projeto01.Entities;
+using Projeto01.Controls;
 
 namespace Projeto01
 {
@@ -11,6 +12,7 @@ namespace Projeto01
     {
         static void Main(string[] args)
         {
+            #region Atribuição de Valores
             //instâncias
             Autor autor1 = new Autor();
             autor1.Livros = new List<Livro>();
@@ -50,6 +52,35 @@ namespace Projeto01
                 Console.WriteLine("\tAutor......: " + i.Autor.Nome);
                 Console.WriteLine("---------------------------------");
             }
+            #endregion
+
+            //Exportando Autores
+            try
+            {
+                AutorControle autorControle = new AutorControle();
+                autorControle.ExportarParaCsv(autor1);
+
+                Console.WriteLine("\nDados de Autor gravados com sucesso!");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Erro ao exportar Autor: " + e.Message);
+            }
+
+            //Exportando Livros
+            try
+            {
+                LivroControle livroControle = new LivroControle();
+                livroControle.ExportarParaTxt(livro1);
+                livroControle.ExportarParaTxt(livro2);
+
+                Console.WriteLine("\nDados de Livros gravados com sucesso!");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Erro ao exportar Livros: " + e.Message);
+            }
+
 
             Console.ReadKey();
         }

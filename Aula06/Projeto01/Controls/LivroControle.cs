@@ -13,9 +13,13 @@ namespace Projeto01.Controls
     {
         public void ExportarParaTxt(Livro livro)
         {
-            StreamWriter sw = new StreamWriter("c:\\temp\\livro.txt", true);
-
-
+            using (StreamWriter sw = new StreamWriter("c:\\temp\\livros.txt", true))
+            {
+                sw.WriteLine("Id do Livro......: " + livro.IdLivro);
+                sw.WriteLine("Título...........: " + livro.Titulo);
+                sw.WriteLine("Resumo...........: " + livro.Resumo);
+                sw.WriteLine("Autor............: " + livro.Autor.Nome);
+            }
         }
     }
 }
